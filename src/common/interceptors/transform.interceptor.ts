@@ -1,0 +1,23 @@
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+export interface ApiResponse<T> {
+  data: T;
+  timestamp: string;
+}
+
+@Injectable()
+export class TransformInterceptor<T> implements NestInterceptor<T, ApiResponse<T>> {
+  intercept(
+    context: ExecutionContext,
+    next: CallHandler<T>, // <-- Add <T> here
+  ): Observable<ApiResponse<T>> {
+    return next.handle().pipe(
+      map((data: T): ApiResponse<T> => ({
+        data,
+        timestamp: new Date().toISOString(),
+      })),
+    );
+  }
+}
