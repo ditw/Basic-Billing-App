@@ -1,6 +1,6 @@
 import { Controller, Post, Body, Get, Param, HttpCode, HttpStatus } from '@nestjs/common';
-import { CurrenciesService } from '@app/currencies/services/currencies.service';
-import { CreateCurrencyDto } from '@app/currencies/dto/create-currency.dto';
+import { CurrenciesService } from '../services/currencies.service';
+import { CreateCurrencyDto } from '../dto/create-currency.dto';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Currencies')

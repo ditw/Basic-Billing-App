@@ -1,7 +1,7 @@
 import { Controller, Post, Param, Body, HttpCode, HttpStatus } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
-import { BillingService } from '@app/billing/services/billing.service';
-import { CalculateBillDto } from '@app/billing/dto/calculate-bill.dto';
+import { BillingService } from '../services/billing.service';
+import { CalculateBillDto } from '../dto/calculate-bill.dto';
 
 @ApiTags('Billing')
 @Controller('accounts')
