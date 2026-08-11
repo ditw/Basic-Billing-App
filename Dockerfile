@@ -23,7 +23,7 @@ FROM node:24-alpine AS runner
 
 WORKDIR /app
 
-ENV NODE_ENV=production
+ENV NODE_ENV=staging
 
 # Security: Create non-root user
 USER node
